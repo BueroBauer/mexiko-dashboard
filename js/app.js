@@ -91,7 +91,7 @@
 
   // --- Timeline ---
   function renderPhaseCard(phase, index) {
-    var isOpen = index === 0;
+    var isOpen = false;
 
     var tempBadge = '';
     if (phase.avgTempC) {
