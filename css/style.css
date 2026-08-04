@@ -1,0 +1,1402 @@
+/* css/style.css */
+/* Mexiko Reise-Dashboard — Dark Theme */
+/* Identisch Master Dashboard: #0D0F12, #161A20, #3B82F6 */
+
+/* ============================================================
+   1. CSS Custom Properties
+   ============================================================ */
+
+:root {
+  /* Dark Theme — identisch Master Dashboard */
+  --bg:           #0D0F12;
+  --card:         #161A20;
+  --border:       #1F2937;
+  --accent:       #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-green: #4a9e4a;
+  --yellow:       #e8c547;
+  --text:         #E5E7EB;
+  --muted:        #9CA3AF;
+  --font:         -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  --radius:       14px;
+
+  /* Sticky Nav Höhe — scroll-padding-top muss gleicher Wert sein */
+  --nav-height:   56px;
+
+  /* Phasen-Farben — JS liest via getComputedStyle(root).getPropertyValue('--phase-N') */
+  --phase-1:  #6366F1;  /* Taipei */
+  --phase-2:  #8B5CF6;  /* Hualien */
+  --phase-3:  #EC4899;  /* East Rift Valley */
+  --phase-4:  #F59E0B;  /* Taitung */
+  --phase-5:  #10B981;  /* Xiaoliuqiu */
+  --phase-6:  #06B6D4;  /* Kenting */
+  --phase-7:  #3B82F6;  /* Tainan */
+  --phase-8:  #84CC16;  /* Alishan */
+  --phase-9:  #F97316;  /* Sun Moon Lake */
+  --phase-10: #EF4444;  /* Taipei Rückreise */
+}
+
+/* ============================================================
+   2. Reset
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   3. html + body
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height); /* 56px — muss mit .nav height übereinstimmen */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   4. Sticky Nav
+   ============================================================ */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background-color: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+
+.nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem 1.1rem;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ============================================================
+   5. Layout-Helpers
+   ============================================================ */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   6. Card-System
+   ============================================================ */
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-meta {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   7. Grid-System (mobile-first)
+   ============================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   8. Hero / Stats-Bar
+   ============================================================ */
+
+.hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   9. Placeholder-Styles
+   ============================================================ */
+
+.placeholder {
+  color: var(--muted);
+  font-style: italic;
+  padding: 3rem 0;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+/* ============================================================
+   10. Passwort-Gate
+   ============================================================ */
+
+.gate-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.gate-box {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: min(400px, 90vw);
+  text-align: center;
+}
+
+.gate-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.gate-subtitle {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.gate-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: var(--font);
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.gate-input:focus {
+  border-color: var(--accent);
+}
+
+.gate-input.error {
+  border-color: #EF4444;
+}
+
+.gate-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.gate-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.gate-error {
+  color: #EF4444;
+  font-size: 0.8125rem;
+  margin-top: 0.75rem;
+  display: none;
+}
+
+.gate-error.visible {
+  display: block;
+}
+
+/* ============================================================
+   11. Utility-Klassen
+   ============================================================ */
+
+.hidden { display: none !important; }
+.emoji { font-style: normal; }
+
+/* ============================================================
+   12. Timeline — Phase 3
+   TML-01 bis TML-06
+   ============================================================ */
+
+/* Phase-Card */
+.tl-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  border-left: 3px solid var(--phase-color, var(--accent));
+}
+
+.tl-card--open .tl-chevron {
+  transform: rotate(180deg);
+}
+
+/* Header */
+.tl-card-header {
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  user-select: none;
+  gap: 0;
+  transition: background-color 0.15s;
+}
+
+.tl-card-header:hover {
+  background-color: rgba(255,255,255,0.03);
+}
+
+.tl-card-header:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.tl-phase-bar {
+  width: 4px;
+  background-color: var(--phase-color, var(--accent));
+  flex-shrink: 0;
+}
+
+.tl-header-content {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  min-width: 0;
+}
+
+.tl-header-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.tl-phase-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.tl-phase-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+}
+
+.tl-chevron {
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.tl-dates {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.tl-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.tl-highlight-tag {
+  font-size: 0.75rem;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.2rem 0.6rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Card Body */
+.tl-card-body {
+  border-top: 1px solid var(--border);
+}
+
+/* Day */
+.tl-day {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tl-day:last-child {
+  border-bottom: none;
+}
+
+.tl-day-header {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Slots */
+.tl-slot {
+  margin-bottom: 0.75rem;
+}
+
+.tl-slot:last-child {
+  margin-bottom: 0;
+}
+
+.tl-slot-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.tl-slot--nap .tl-slot-label {
+  color: #6B7280;
+}
+
+.tl-nap-block {
+  font-size: 0.8125rem;
+  color: #4B5563;
+  background-color: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-style: italic;
+}
+
+.tl-slot-empty {
+  font-size: 0.8125rem;
+  color: #374151;
+  font-style: italic;
+}
+
+/* Sight List */
+.tl-sight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tl-sight {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.tl-sight-name {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.tl-sight-name:hover {
+  text-decoration: underline;
+}
+
+.tl-sight-tip {
+  width: 100%;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-left: 0.25rem;
+}
+
+/* Badges */
+.tl-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.tl-badge--nights {
+  background-color: rgba(59,130,246,0.15);
+  color: #93C5FD;
+  border: 1px solid rgba(59,130,246,0.25);
+}
+
+.tl-temp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background-color: rgba(107,114,128,0.15);
+  color: #9CA3AF;
+  border: 1px solid rgba(107,114,128,0.25);
+}
+
+.tl-badge--warn {
+  background-color: rgba(239,68,68,0.12);
+  color: #FCA5A5;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.tl-badge--open-q {
+  background-color: rgba(245,158,11,0.12);
+  color: #FCD34D;
+  border: 1px solid rgba(245,158,11,0.2);
+}
+
+.tl-badge--jetlag {
+  background-color: rgba(139,92,246,0.15);
+  color: #C4B5FD;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+.tl-badge--gratis {
+  background-color: rgba(74,158,74,0.15);
+  color: #86EFAC;
+  border: 1px solid rgba(74,158,74,0.2);
+}
+
+.tl-badge--price {
+  background-color: rgba(245,158,11,0.1);
+  color: #FCD34D;
+  border: 1px solid rgba(245,158,11,0.15);
+}
+
+.tl-badge--buggy {
+  background-color: rgba(239,68,68,0.1);
+  color: #FCA5A5;
+  border: 1px solid rgba(239,68,68,0.15);
+  font-size: 0.7rem;
+}
+
+.tl-badge--buggy-ok {
+  background-color: rgba(74,158,74,0.08);
+  color: #6EE7B7;
+  border: 1px solid rgba(74,158,74,0.12);
+  font-size: 0.7rem;
+}
+
+.tl-badge--special {
+  background-color: rgba(251,191,36,0.12);
+  color: #FDE68A;
+  border: 1px solid rgba(251,191,36,0.2);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .tl-header-content {
+    padding: 0.875rem 1rem;
+  }
+  .tl-phase-name {
+    font-size: 0.9375rem;
+  }
+  .tl-day {
+    padding: 0.875rem 1rem;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--border);
+  color: var(--text);
+}
+
+.badge-accent  { background-color: var(--accent); color: #fff; }
+.badge-green   { background-color: var(--accent-green); color: #fff; }
+.badge-yellow  { background-color: var(--yellow); color: #0D0F12; }
+.badge-red     { background-color: #EF4444; color: #fff; }
+
+.text-muted    { color: var(--muted); }
+.text-accent   { color: var(--accent); }
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+/* ============================================================
+   Phase 2 — Leaflet-Karte
+   ============================================================ */
+
+/* Karte */
+#map {
+  height: 560px;
+  border-radius: var(--radius);
+  background: var(--card);
+  z-index: 0;
+}
+
+/* Filter-Button-Leiste */
+#map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.map-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.map-filter-btn.active {
+  background: var(--border);
+  color: var(--text);
+  border-color: transparent;
+}
+
+.map-filter-all.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.filter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Phase-Basis-Marker (nummerierter Kreis) */
+.phase-base-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Rauten-Marker für Daytips */
+.map-diamond-icon .diamond {
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border: 2px solid;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Cluster-Icon */
+.cluster-icon-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.cluster-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.85);
+  border: 2px solid rgba(255,255,255,0.7);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Leaflet Popups — Dark Theme */
+.leaflet-popup-content-wrapper {
+  background: var(--card, #161A20) !important;
+  border: 1px solid var(--border, #1F2937) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
+  color: var(--text, #E5E7EB) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--card, #161A20) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--muted, #9CA3AF) !important;
+}
+
+.map-popup {
+  min-width: 180px;
+  max-width: 240px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.popup-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--text, #E5E7EB);
+}
+
+.popup-price {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--accent, #3B82F6);
+  font-weight: 600;
+}
+
+.popup-price.free {
+  color: #4ade80;
+}
+
+.popup-price small {
+  font-weight: 400;
+  color: var(--muted, #9CA3AF);
+}
+
+.popup-tip {
+  font-size: 0.76rem;
+  color: var(--muted, #9CA3AF);
+  margin-bottom: 0.4rem;
+}
+
+.popup-question {
+  font-size: 0.76rem;
+  color: #F59E0B;
+  margin-bottom: 0.4rem;
+}
+
+.popup-gmaps-btn {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--accent, #3B82F6);
+  color: #fff !important;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.popup-gmaps-btn:hover {
+  background: var(--accent-hover, #2563EB);
+}
+
+/* === Phase 4: Charts / Videos / Restaurants === */
+
+/* --- Charts --- */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .chart-grid { grid-template-columns: 1fr 1fr; }
+}
+.chart-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.chart-title {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+.chart-container canvas {
+  display: block;
+}
+
+/* --- Budget Counter --- */
+.budget-counter {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
+.budget-item {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+.budget-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.budget-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+.budget-vs {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.budget-total {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* --- Videos --- */
+.vid-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.vid-tab {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+}
+.vid-tab--active,
+.vid-tab:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.vid-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .vid-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.vid-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+}
+.vid-thumb-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: var(--border);
+  overflow: hidden;
+}
+.vid-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.vid-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #1F2937;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+.vid-placeholder-label {
+  font-size: 0.7rem;
+  color: #6B7280;
+  text-align: center;
+  pointer-events: none;
+}
+.vid-thumb-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.vid-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  pointer-events: none;
+}
+.vid-play-btn--search {
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  background: rgba(59,130,246,0.75);
+}
+.vid-title {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* --- Restaurants --- */
+.rst-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.rst-filter {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 0.3rem 0.65rem;
+}
+.rst-filter--active,
+.rst-filter:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.rst-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .rst-grid { grid-template-columns: 1fr 1fr; }
+}
+.rst-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.rst-name {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.rst-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.rst-type {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.rst-price {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.rst-note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.rst-link {
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+.rst-link:hover {
+  text-decoration: underline;
+}
+
+/* === BOOKING === */
+.bkg-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+@media (min-width: 768px) { .bkg-grid { grid-template-columns: 1fr 1fr; } }
+
+.bkg-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bkg-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.bkg-phase-num {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.bkg-region {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.bkg-badge {
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  font-weight: 600;
+}
+.bkg-badge--warn {
+  background: #EF4444;
+  color: #fff;
+}
+
+.bkg-dates {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.bkg-criteria {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.bkg-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.bkg-link {
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.bkg-link--primary { background: var(--accent); color: #fff; }
+.bkg-link--secondary { background: var(--border); color: var(--text); }
+.bkg-link:hover { opacity: 0.85; }
+
+.bkg-hotels-empty {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-style: italic;
+  padding: 0.25rem 0;
+}
+.bkg-hotels { display: flex; flex-direction: column; gap: 0.3rem; }
+.bkg-hotel {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+.bkg-hotel-name { color: var(--text); }
+.bkg-hotel-price { color: var(--accent); }
+.bkg-hotel-link { color: var(--accent); text-decoration: none; }
+.bkg-hotel-link:hover { text-decoration: underline; }
+
+.bkg-tours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.25rem;
+}
+.bkg-tour {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.4rem;
+  background: var(--bg);
+  border-radius: 4px;
+}
+.bkg-tour-name {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.bkg-tour-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.bkg-tour-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.bkg-tour-placeholder {
+  color: #F59E0B;
+  font-size: 0.75rem;
+}
+.bkg-tour-link {
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+.bkg-tour-link:hover { text-decoration: underline; }
+
+/* === FAQ === */
+.faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.faq-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.faq-item--open     { border-left: 3px solid #EF4444; }
+.faq-item--resolved { border-left: 3px solid #22C55E; }
+
+.faq-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.faq-status { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+.faq-priority { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.1rem 0.3rem; border-radius: 3px; background: var(--border); }
+.faq-priority--critical { color: #EF4444; }
+.faq-priority--high     { color: #F59E0B; }
+.faq-priority--medium   { color: var(--muted); }
+.faq-priority--low      { color: var(--muted); opacity: 0.6; }
+
+.faq-question { color: var(--text); font-size: 0.9rem; font-weight: 500; line-height: 1.4; }
+.faq-tip      { color: var(--muted); font-size: 0.78rem; line-height: 1.4; }
+.faq-answer   { color: #22C55E; font-size: 0.82rem; line-height: 1.4; }
+
+/* ============================================================
+   Sicherheit — Warndienst + Bebenskala (sicherheit.js)
+   ============================================================ */
+
+.sec-block { margin-bottom: 2.5rem; }
+.sec-block-title { font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+.sec-block-intro { color: var(--muted); font-size: 0.86rem; line-height: 1.5; margin-bottom: 1.25rem; max-width: 62ch; }
+.sec-block-intro code { background: var(--border); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8rem; }
+.sec-sub { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 1.75rem 0 0.75rem; }
+.sec-limit { margin-top: 1.5rem; padding: 0.9rem 1rem; background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--muted); border-radius: var(--radius); color: var(--muted); font-size: 0.82rem; line-height: 1.55; }
+.sec-limit strong { color: var(--text); }
+.sec-limit--ref { border-left-color: var(--accent); }
+.sec-context { margin-top: 1rem; color: var(--muted); font-size: 0.84rem; line-height: 1.6; max-width: 78ch; }
+
+/* Warndienst — Statuskarte */
+.wd-status { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--lvl); border-radius: var(--radius); padding: 1.15rem 1.25rem; }
+.wd-status-main { display: flex; align-items: center; gap: 0.85rem; }
+.wd-status-icon { font-size: 1.75rem; line-height: 1; }
+.wd-status-label { font-size: 1.05rem; font-weight: 700; color: var(--lvl); }
+.wd-status-date { font-size: 0.78rem; color: var(--muted); }
+.wd-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; margin: 1.1rem 0 0.9rem; }
+.wd-metric { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 0.7rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.wd-metric-value { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.wd-metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.wd-note { font-size: 0.83rem; color: var(--text); line-height: 1.5; }
+.wd-note--muted { color: var(--muted); font-size: 0.78rem; margin-top: 0.3rem; }
+
+/* Warndienst — Referenzband */
+.wd-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.5rem; }
+.wd-band-item { border: 1px solid var(--border); border-top: 3px solid var(--lvl); border-radius: 8px; padding: 0.55rem 0.65rem; background: var(--card); }
+.wd-band-range { display: block; font-size: 0.88rem; font-weight: 700; color: var(--text); }
+.wd-band-label { display: block; font-size: 0.72rem; color: var(--lvl); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Warndienst — Stufen */
+.wd-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.65rem; }
+.wd-level { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--lvl); border-radius: var(--radius); padding: 0.8rem 0.9rem; opacity: 0.65; }
+.wd-level--active { opacity: 1; box-shadow: 0 0 0 1px var(--lvl) inset; }
+.wd-level-head { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--text); margin-bottom: 0.35rem; }
+.wd-level-now { margin-left: auto; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--lvl); border: 1px solid var(--lvl); border-radius: 999px; padding: 0.08rem 0.4rem; }
+.wd-level-trigger { font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+.wd-level-action { font-size: 0.78rem; color: var(--text); line-height: 1.45; margin-top: 0.4rem; }
+
+/* Warndienst — Trigger */
+.wd-triggers { display: grid; gap: 0.65rem; }
+.wd-trigger { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--yellow); border-radius: var(--radius); padding: 0.85rem 1rem; }
+.wd-trigger-head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; color: var(--text); font-size: 0.92rem; }
+.wd-chip { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); background: var(--border); border-radius: 999px; padding: 0.12rem 0.45rem; }
+.wd-trigger-detail { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-top: 0.35rem; }
+.wd-trigger-window { font-size: 0.74rem; color: var(--yellow); margin-top: 0.4rem; }
+
+/* Warndienst — Kalender */
+.wd-cal { display: grid; gap: 0.35rem; }
+.wd-cal-row { display: grid; grid-template-columns: 96px 1fr auto; gap: 0.75rem; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 0.8rem; }
+.wd-cal-date { font-size: 0.78rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+.wd-cal-event { display: flex; flex-direction: column; gap: 0.1rem; font-size: 0.85rem; color: var(--text); }
+.wd-cal-event em { font-style: normal; font-size: 0.75rem; color: var(--muted); }
+.wd-cal-risk { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); white-space: nowrap; }
+.wd-cal-row--hoch   { border-left: 3px solid #EF4444; }
+.wd-cal-row--hoch   .wd-cal-risk { color: #FCA5A5; }
+.wd-cal-row--mittel { border-left: 3px solid var(--yellow); }
+.wd-cal-row--mittel .wd-cal-risk { color: #FCD34D; }
+.wd-cal-row--none   { border-left: 3px solid var(--accent); }
+
+/* Warndienst — Quellen */
+.wd-sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.55rem; }
+.wd-source { display: flex; flex-direction: column; gap: 0.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.8rem; text-decoration: none; transition: border-color 0.15s ease, transform 0.15s ease; }
+.wd-source:hover { border-color: var(--accent); transform: translateY(-1px); }
+.wd-source-name { font-size: 0.84rem; font-weight: 600; color: var(--accent); }
+.wd-source-what { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+.wd-source-cadence { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); opacity: 0.75; }
+
+/* Bebenskala — Zahlen */
+.sk-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.55rem; }
+.sk-fact { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.8rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.sk-fact-value { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.sk-fact-label { font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
+
+/* Bebenskala — Legende */
+.sk-scale { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.55rem; }
+.sk-scale-item { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--lvl); border-radius: 10px; padding: 0.7rem 0.8rem; }
+.sk-scale-head { display: flex; align-items: center; gap: 0.45rem; color: var(--text); font-size: 0.9rem; margin-bottom: 0.3rem; }
+.sk-bar { color: var(--lvl); font-size: 1.1rem; line-height: 1; }
+.sk-scale-meaning { font-size: 0.76rem; color: var(--muted); line-height: 1.45; }
+
+/* Bebenskala — pro Phase */
+.sk-phases { display: grid; gap: 0.5rem; }
+.sk-phase { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--phase-color); border-radius: 10px; padding: 0.75rem 0.9rem; }
+.sk-phase-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.sk-phase-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.sk-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--lvl); border: 1px solid var(--lvl); border-radius: 999px; padding: 0.1rem 0.45rem; white-space: nowrap; }
+.sk-phase-headline { font-size: 0.8rem; color: var(--lvl); margin-top: 0.25rem; }
+.sk-phase-note { font-size: 0.79rem; color: var(--muted); line-height: 1.5; margin-top: 0.25rem; }
+
+/* Bebenskala — Verhalten + Apps */
+.sk-list { list-style: none; display: grid; gap: 0.4rem; }
+.sk-list li { position: relative; padding-left: 1.1rem; font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+.sk-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+.sk-apps { display: grid; gap: 0.5rem; }
+.sk-app { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.85rem; }
+.sk-app-head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; color: var(--text); font-size: 0.87rem; }
+.sk-app-what { font-size: 0.78rem; color: var(--muted); line-height: 1.45; margin-top: 0.25rem; }
+
+/* Timeline — Bebenbadge + Zeile in der Phase */
+.tl-badge--seismik { color: var(--lvl); border: 1px solid var(--lvl); background: transparent; }
+.tl-seismik { margin: 0.85rem 1rem 0; padding: 0.7rem 0.85rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-left: 3px solid var(--lvl); border-radius: 10px; }
+.tl-seismik-head { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text); flex-wrap: wrap; }
+.tl-seismik-note { font-size: 0.77rem; color: var(--muted); line-height: 1.5; margin-top: 0.3rem; }
+.tl-seismik-link { display: inline-block; margin-top: 0.4rem; font-size: 0.72rem; color: var(--accent); text-decoration: none; }
+.tl-seismik-link:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .wd-cal-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .wd-cal-risk { text-align: left; }
+  .tl-seismik { margin: 0.75rem 0.85rem 0; }
+}
+
+/* ============================================================
+   Mexiko-spezifisch: Kriminalitätskarten + Sicherheits-Blöcke
+   ============================================================ */
+
+.sec-block { margin-bottom: 2.5rem; }
+.sec-block-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
+.sec-block-intro { font-size: 0.875rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+.sec-sub { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 1.25rem 0 0.6rem; }
+
+/* Kriminalitätskarten — Bundesstaat-Ampel */
+.krim-grid { display: grid; gap: 0.6rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .krim-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .krim-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.krim-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--lvl, var(--accent));
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+.krim-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.krim-icon { font-size: 1rem; }
+.krim-name { font-size: 0.875rem; font-weight: 600; color: var(--text); flex: 1; }
+.krim-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  white-space: nowrap;
+}
+.krim-note { font-size: 0.79rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.35rem; }
+.krim-phases { font-size: 0.72rem; color: var(--muted); opacity: 0.7; }
+
+/* lastcheck + sources bereits aus Taiwan vorhanden */
+.wd-lastcheck { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+
+/* Hurrikan Status-Box — nutzt wd-status aus Taiwan */

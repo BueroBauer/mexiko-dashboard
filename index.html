@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mexiko 2026/27 🇲🇽</title>
+
+  <!-- Eigenes Stylesheet zuerst — verhindert weißen Flash -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+</head>
+<body>
+
+  <!-- Passwort-Gate (app.js steuert: lokal = auto-unlock, remote = Gate anzeigen) -->
+  <div id="gate-overlay" class="gate-overlay">
+    <div class="gate-box">
+      <div class="gate-title">🇲🇽 Mexiko 2026/27</div>
+      <div class="gate-subtitle">Reise-Dashboard · Familie</div>
+      <input type="password" id="gate-input" class="gate-input" placeholder="Passwort" autocomplete="off" />
+      <button id="gate-btn" class="gate-btn">Entsperren</button>
+      <div id="gate-error" class="gate-error">Falsches Passwort</div>
+    </div>
+  </div>
+
+  <!-- App-Wrapper — hidden bis Gate gelöst -->
+  <div id="app" class="hidden">
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#karte"       class="nav-link">🗺 Karte</a></li>
+        <li><a href="#timeline"    class="nav-link">📅 Timeline</a></li>
+        <li><a href="#zahlen"      class="nav-link">📊 Zahlen</a></li>
+        <li><a href="#videos"      class="nav-link">🎬 Videos</a></li>
+        <li><a href="#restaurants" class="nav-link">🌱 Restaurants</a></li>
+        <li><a href="#booking"     class="nav-link">🏨 Booking</a></li>
+        <li><a href="#sicherheit"  class="nav-link">🛡 Sicherheit</a></li>
+        <li><a href="#fragen"      class="nav-link">❓ Fragen</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="container">
+          <h1 class="hero-title">Mexiko 2026/27 🇲🇽</h1>
+          <p class="hero-subtitle">59 Tage · 5 Phasen · 2 Erw. + Kind 2J · Vollständig vegetarisch</p>
+          <div class="stats-bar">
+            <div class="stat">
+              <span class="stat-value">59 Tage</span>
+              <span class="stat-label">1. Dez – 29. Jan</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">5 Phasen</span>
+              <span class="stat-label">CDMX → Oaxaca → Huatulco → Yucatán</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">€14.600–16.500</span>
+              <span class="stat-label">Gesamtbudget</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">~40 Sights</span>
+              <span class="stat-label">Karte + Timeline</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">20 Videos</span>
+              <span class="stat-label">Curated YouTube</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">10 Fragen</span>
+              <span class="stat-label">FAQ Checkliste</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Karte -->
+      <section id="karte" class="section">
+        <div class="container">
+          <h2 class="section-title">Karte</h2>
+          <div id="map-filters"></div>
+          <div id="map"></div>
+        </div>
+      </section>
+
+      <!-- Section: Timeline -->
+      <section id="timeline" class="section">
+        <div class="container">
+          <h2 class="section-title">Timeline</h2>
+          <p class="section-subtitle">5 Phasen · 59 Tage · täglich mit Vormittag / Mittagsschlaf / Nachmittag</p>
+          <div id="timeline-container"></div>
+        </div>
+      </section>
+
+      <!-- Section: Zahlen -->
+      <section id="zahlen" class="section">
+        <div class="container">
+          <h2 class="section-title">Zahlen</h2>
+          <div id="charts-content">
+            <div class="chart-grid">
+              <div class="chart-card">
+                <h3 class="chart-title">Kostenverteilung</h3>
+                <div class="chart-container" style="position:relative;height:300px">
+                  <canvas id="chart-costs"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <h3 class="chart-title">Nächte pro Phase</h3>
+                <div class="chart-container" style="position:relative;height:300px">
+                  <canvas id="chart-nights"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <h3 class="chart-title">Temperaturen (Min/Max) pro Region</h3>
+                <div class="chart-container" style="position:relative;height:300px">
+                  <canvas id="chart-temp"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <h3 class="chart-title">Eintritte &#8212; Gratis vs. Kosten</h3>
+                <div class="chart-container" style="position:relative;height:300px">
+                  <canvas id="chart-entries"></canvas>
+                </div>
+              </div>
+            </div>
+            <div id="budget-counter-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Videos -->
+      <section id="videos" class="section">
+        <div class="container">
+          <h2 class="section-title">Videos</h2>
+          <div id="videos-content" class="placeholder">YouTube-Guide lädt…</div>
+        </div>
+      </section>
+
+      <!-- Section: Restaurants -->
+      <section id="restaurants" class="section">
+        <div class="container">
+          <h2 class="section-title">Restaurants</h2>
+          <p class="section-subtitle">Vegetarisch + vegan in Mexiko · nach Phase gefiltert</p>
+          <div id="restaurants-content" class="placeholder">Restaurant-Guide lädt…</div>
+        </div>
+      </section>
+
+      <!-- Section: Booking -->
+      <section id="booking" class="section">
+        <div class="container">
+          <h2 class="section-title">Booking</h2>
+          <div id="booking-content" class="placeholder">Hotel-Research + Viator-Touren lädt…</div>
+        </div>
+      </section>
+
+      <!-- Section: Sicherheit — Kriminalität + Erdbeben + Hurrikan -->
+      <section id="sicherheit" class="section">
+        <div class="container">
+          <h2 class="section-title">Sicherheit</h2>
+          <p class="section-subtitle">Kriminalitätslage · Erdbeben (Ring of Fire) · Hurrikan-Saison</p>
+          <div id="sicherheit-content" class="placeholder">Sicherheitsdaten laden…</div>
+        </div>
+      </section>
+
+      <!-- Section: Fragen -->
+      <section id="fragen" class="section">
+        <div class="container">
+          <h2 class="section-title">Offene Fragen</h2>
+          <div id="faq-content" class="placeholder">10 offene Fragen lädt…</div>
+        </div>
+      </section>
+
+    </main>
+  </div><!-- /#app -->
+
+  <!-- Scripts — KEIN type="module" (CORS bei file://)
+       Reihenfolge: data.js → map.js → charts.js → app.js -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/videos.js"></script>
+  <script src="js/restaurants.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/sicherheit.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
