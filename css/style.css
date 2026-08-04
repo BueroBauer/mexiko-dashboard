@@ -1436,4 +1436,8 @@ section.section:last-child {
   font-size: 0.72rem;
 }
 
+/* Budget-Referenz Zeile */
+.budget-ref { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; text-align: center; }
+.budget-ref-note { opacity: 0.7; }
+
 /* Hurrikan Status-Box — nutzt wd-status aus Taiwan */

@@ -17,7 +17,7 @@ window.MEXIKO = {
     travelers:    { adults: 2, children: 1, childAge: 2 },
     diet:         "vollständig vegetarisch",
     budget:       { low: 14600, high: 16500, currency: "EUR" },
-    dailyBudget:  { comfort: 280, backpacker: 170 },
+    dailyBudget:  { comfort: 280, backpacker: 170, backpackerRef: 45, backpackerRefNote: "Solo Backpacker Yucatán laut backpackinghacks.de (Hostel + Streetfood + Bus)" },
     centerLat:    19.0, centerLng: -90.0, defaultZoom: 5
   },
 
@@ -377,6 +377,8 @@ window.MEXIKO = {
     { id: "s036", phaseId: 4, name: "Izamal — Gelbe Stadt",             lat: 20.9296, lng: -89.0158, type: "daytrip", price: { mxn: 0, eur: 0 },   gratis: true,  buggyFriendly: true,  googleMapsUrl: "https://maps.google.com/?q=Izamal+Yucatan", tip: "Kloster auf Maya-Pyramide, alles gelb angestrichen, sehr fotogen" },
     { id: "s037", phaseId: 4, name: "Plaza Grande Mérida",              lat: 20.9674, lng: -89.6235, type: "sight",   price: { mxn: 0, eur: 0 },   gratis: true,  buggyFriendly: true,  googleMapsUrl: "https://maps.google.com/?q=Plaza+Grande+Merida", tip: "Abends sehr lebendig, Familien-freundlich" },
     { id: "s038", phaseId: 4, name: "Cenote Azul Bacalar 🏊",           lat: 18.7122, lng: -88.3847, type: "daytrip", price: { mxn: 80, eur: 4 },  gratis: false, buggyFriendly: false, googleMapsUrl: "https://maps.google.com/?q=Cenote+Azul+Bacalar", tip: "BESTES Cenote für 2-Jährige: flache Bereiche, Kind kann stehen" },
+    { id: "s039", phaseId: 4, name: "Laguna Bacalar 💎 (Quelle: backpackinghacks.de)", lat: 18.6712, lng: -88.3964, type: "daytrip", price: { mxn: 0, eur: 0 }, gratis: true, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Laguna+Bacalar+Mexico", tip: "Türkisfarbener 'See der 7 Farben', 40 km lang. Von backpackinghacks.de explizit als Highlight empfohlen. 2h südlich von Tulum." },
+    { id: "s041", phaseId: 4, name: "Isla Holbox 🏝 (optional)", lat: 21.5253, lng: -87.3770, type: "daytrip", price: { mxn: 200, eur: 10 }, gratis: false, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Isla+Holbox+Mexico", tip: "Autofreie Insel NW von Yucatán. Backpackinghacks empfiehlt als Reise-Abschluss. Walhaie (Sommer). Fähre ab Chiquilá." },
 
     // Phase 5 — CDMX Rückreise
     { id: "s040", phaseId: 5, name: "Xochimilco Trajineras",            lat: 19.2573, lng: -99.1027, type: "sight",   price: { mxn: 150, eur: 7 }, gratis: false, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Xochimilco+Mexico+City", tip: "Letzter Urlaubstag, Kinder lieben die bunten Boote" }
@@ -663,6 +665,30 @@ window.MEXIKO = {
       status: "open",
       priority: "mittel",
       tip: "Hauptsaison Schlüpflinge Mai–Oktober, Dez/Jan weniger aber möglich. Vor Ort beim Biosphären-Koordinator buchen.",
+      answer: null
+    },
+    {
+      id: "faq-011",
+      question: "Chiapas (San Cristóbal + Palenque) — bewusst ausgelassen?",
+      status: "resolved",
+      priority: "mittel",
+      tip: "Klassische Route geht Oaxaca → Chiapas → Yucatán (backpackinghacks.de). Wir fliegen direkt Oaxaca → Huatulco → Yucatán.",
+      answer: "Ja, bewusst. Chiapas erfordert lange Busfahrten (Nachtbus) — mit Kleinkind 2J nicht sinnvoll. Huatulco = bessere Alternative: Wale, Schildkröten, Familienstrände. Chiapas für eine künftige Mexiko-Reise merken."
+    },
+    {
+      id: "faq-012",
+      question: "Budget-Check: Backpacker-Referenz 35–50€/Tag Yucatán — warum wir 170–280€/Tag haben?",
+      status: "resolved",
+      priority: "niedrig",
+      tip: "Quelle: backpackinghacks.de/mexiko-route/ — Backpacker-Budget für Solo-Reisende in Hostels.",
+      answer: "Unterschied: Backpacker = Hostel-Dorm + Street Food + Bus. Wir = Boutique-Hotel (2 Zimmer) + Restaurant + Mietwagen + Kleinkind-Extras. Unsere €170–280/Tag ist korrekt für Familie Mid-Range. Eintritte (Chichén Itzá €33, Uxmal €29) entsprechen der Quelle."
+    },
+    {
+      id: "faq-013",
+      question: "Laguna Bacalar + Isla Holbox — in den Yucatán-Plan einbauen?",
+      status: "open",
+      priority: "mittel",
+      tip: "Bacalar: 2h südlich Tulum, türkisfarbener See, 1–2 Tage. Holbox: autofreie Insel NW Yucatán, 2–3 Tage. Beide von backpackinghacks explizit empfohlen.",
       answer: null
     }
   ],

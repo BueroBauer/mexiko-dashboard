@@ -28,6 +28,7 @@ window.chartsModule = (function () {
       + '<div class="budget-total">'
       +   'Gesamtbudget: \u20AC' + budget.low + '\u2013\u20AC' + budget.high
       + '</div>'
+      + (daily.backpackerRef ? '<div class="budget-ref">Referenz Solo-Backpacker: \u20AC' + daily.backpackerRef + '/Tag &middot; <span class="budget-ref-note">' + daily.backpackerRefNote + '</span></div>' : '')
       + '</div>';
 
     c.innerHTML = html;
