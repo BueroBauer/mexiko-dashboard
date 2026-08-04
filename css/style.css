@@ -1403,4 +1403,37 @@ section.section:last-child {
 /* lastcheck + sources bereits aus Taiwan vorhanden */
 .wd-lastcheck { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
 
+/* Flug-Badges in Timeline-Phasen-Header */
+.tl-flight-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.tl-flight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+.tl-flight-badge--inland {
+  background: rgba(59,130,246,0.15);
+  color: #93C5FD;
+  border: 1px solid rgba(59,130,246,0.3);
+}
+.tl-flight-badge--international {
+  background: rgba(139,92,246,0.15);
+  color: #C4B5FD;
+  border: 1px solid rgba(139,92,246,0.3);
+}
+.tl-flight-date {
+  font-weight: 400;
+  opacity: 0.75;
+  font-size: 0.72rem;
+}
+
 /* Hurrikan Status-Box — nutzt wd-status aus Taiwan */

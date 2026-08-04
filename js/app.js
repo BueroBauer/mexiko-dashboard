@@ -104,6 +104,20 @@
       seismikBadge = window.seismikBadge(phase.id);
     }
 
+    var flightBadge = '';
+    if (phase.flightIn) {
+      var isIntl = phase.flightIn.type === 'international';
+      flightBadge += '<span class="tl-flight-badge tl-flight-badge--' + phase.flightIn.type + '">'
+        + (isIntl ? '🌍' : '✈') + ' ' + phase.flightIn.route
+        + ' <span class="tl-flight-date">' + phase.flightIn.date + '</span></span>';
+    }
+    if (phase.flightOut) {
+      var isIntlOut = phase.flightOut.type === 'international';
+      flightBadge += '<span class="tl-flight-badge tl-flight-badge--' + phase.flightOut.type + '">'
+        + (isIntlOut ? '🌍' : '✈') + ' ' + phase.flightOut.route
+        + ' <span class="tl-flight-date">' + phase.flightOut.date + '</span></span>';
+    }
+
     var highlights = '';
     if (phase.highlights && phase.highlights.length) {
       highlights = '<div class="tl-highlights">';
@@ -160,6 +174,9 @@
     html += tempBadge;
     html += seismikBadge;
     html += '</div>';
+    if (flightBadge) {
+      html += '<div class="tl-flight-row">' + flightBadge + '</div>';
+    }
     html += highlights;
     if (phase.buggyNote) {
       html += '<div class="tl-buggy-note">🚶 ' + phase.buggyNote + '</div>';
