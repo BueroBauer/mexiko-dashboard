@@ -16,8 +16,9 @@ window.MEXIKO = {
     totalNights:  59,
     travelers:    { adults: 2, children: 1, childAge: 2 },
     diet:         "vollständig vegetarisch",
-    budget:       { low: 14600, high: 16500, currency: "EUR" },
-    dailyBudget:  { comfort: 280, backpacker: 170, backpackerRef: 45, backpackerRefNote: "Solo Backpacker Yucatán laut backpackinghacks.de (Hostel + Streetfood + Bus)" },
+    budget:       { low: 9750, high: 12000, currency: "EUR" },
+    budgetNote:   "Ziel €100/Tag vor Ort (€5.900) + Flüge €3.846 + Reserve. Ohne Boutique-Hotels, mehr Märkte + Streetfood.",
+    dailyBudget:  { comfort: 230, backpacker: 100, backpackerLabel: "Budget-Ziel", backpackerRef: 45, backpackerRefNote: "Solo Backpacker Yucatán laut backpackinghacks.de (Hostel + Streetfood + Bus)" },
     centerLat:    19.0, centerLng: -90.0, defaultZoom: 5
   },
 
@@ -224,7 +225,7 @@ window.MEXIKO = {
       base: { lat: 20.9674, lng: -89.5926, name: "Mérida, Yucatán" },
       avgTempC: { min: 19, max: 29 },
       weatherNote: "Trockenzeit, angenehm warm, Yucatán = sicherster Bundesstaat Mexikos",
-      highlights: ["Chichén Itzá", "Celestún Flamingos", "Cenote Azul Bacalar", "Uxmal"],
+      highlights: ["Chichén Itzá", "Celestún Flamingos", "Laguna Bacalar", "Uxmal", "Isla Holbox"],
       buggyNote: "Mietwagen essentiell (2 Wochen), nur Mautstraßen + Tageslicht fahren",
       seismikLevel: "niedrig",
       krimLevel: "niedrig",
@@ -276,6 +277,20 @@ window.MEXIKO = {
             { label: "Mittagsschlaf", items: [] },
             { label: "Ruta Puuc", items: [
               { name: "Kabah — kurzer Stopp Regengott-Codz-Poop-Palast", type: "sight", googleMapsUrl: "https://maps.google.com/?q=Kabah+Yucatan" }
+            ]}
+          ]
+        },
+        {
+          date: "2027-01-17",
+          slots: [
+            { label: "Anreise Isla Holbox 🏝", items: [
+              { name: "Fähre ab Chiquilá → Holbox (20 Min, ~30 MXN)", type: "transport", googleMapsUrl: "https://maps.google.com/?q=Chiquila+ferry+Holbox+Mexico" },
+              { name: "Isla Holbox — autofreie Insel, Golfkarren statt Autos", type: "sight", gratis: true, googleMapsUrl: "https://maps.google.com/?q=Isla+Holbox+Mexico" }
+            ]},
+            { label: "Mittagsschlaf", items: [] },
+            { label: "Strand + Sonnenuntergang", items: [
+              { name: "Playa Norte Holbox — flaches karibisches Wasser, kinderfreundlich", type: "sight", gratis: true, googleMapsUrl: "https://maps.google.com/?q=Playa+Norte+Holbox" },
+              { name: "Biolumineszenz-Tour (nachts, optional ab €20/P)", type: "activity", googleMapsUrl: "" }
             ]}
           ]
         },
@@ -378,7 +393,7 @@ window.MEXIKO = {
     { id: "s037", phaseId: 4, name: "Plaza Grande Mérida",              lat: 20.9674, lng: -89.6235, type: "sight",   price: { mxn: 0, eur: 0 },   gratis: true,  buggyFriendly: true,  googleMapsUrl: "https://maps.google.com/?q=Plaza+Grande+Merida", tip: "Abends sehr lebendig, Familien-freundlich" },
     { id: "s038", phaseId: 4, name: "Cenote Azul Bacalar 🏊",           lat: 18.7122, lng: -88.3847, type: "daytrip", price: { mxn: 80, eur: 4 },  gratis: false, buggyFriendly: false, googleMapsUrl: "https://maps.google.com/?q=Cenote+Azul+Bacalar", tip: "BESTES Cenote für 2-Jährige: flache Bereiche, Kind kann stehen" },
     { id: "s039", phaseId: 4, name: "Laguna Bacalar 💎 (Quelle: backpackinghacks.de)", lat: 18.6712, lng: -88.3964, type: "daytrip", price: { mxn: 0, eur: 0 }, gratis: true, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Laguna+Bacalar+Mexico", tip: "Türkisfarbener 'See der 7 Farben', 40 km lang. Von backpackinghacks.de explizit als Highlight empfohlen. 2h südlich von Tulum." },
-    { id: "s041", phaseId: 4, name: "Isla Holbox 🏝 (optional)", lat: 21.5253, lng: -87.3770, type: "daytrip", price: { mxn: 200, eur: 10 }, gratis: false, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Isla+Holbox+Mexico", tip: "Autofreie Insel NW von Yucatán. Backpackinghacks empfiehlt als Reise-Abschluss. Walhaie (Sommer). Fähre ab Chiquilá." },
+    { id: "s041", phaseId: 4, name: "Isla Holbox 🏝", lat: 21.5253, lng: -87.3770, type: "sight", price: { mxn: 0, eur: 0 }, gratis: true, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Isla+Holbox+Mexico", tip: "Autofreie Insel NW Yucatán. 2-3 Tage. Fähre ab Chiquilá (20 Min). Playa Norte = flaches Wasser ideal für Kind. Biolumineszenz-Tour nachts." },
 
     // Phase 5 — CDMX Rückreise
     { id: "s040", phaseId: 5, name: "Xochimilco Trajineras",            lat: 19.2573, lng: -99.1027, type: "sight",   price: { mxn: 150, eur: 7 }, gratis: false, buggyFriendly: true, googleMapsUrl: "https://maps.google.com/?q=Xochimilco+Mexico+City", tip: "Letzter Urlaubstag, Kinder lieben die bunten Boote" }

@@ -23,7 +23,7 @@ window.chartsModule = (function () {
       + '<div class="budget-vs">vs.</div>'
       + '<div class="budget-item budget-item--backpacker">'
       +   '<span class="budget-amount">\u20AC' + daily.backpacker + '</span>'
-      +   '<span class="budget-label">pro Tag \u00B7 Backpacker-Realit\u00E4t</span>'
+      +   '<span class="budget-label">pro Tag \u00B7 ' + (daily.backpackerLabel || 'Budget-Ziel') + '</span>'
       + '</div>'
       + '<div class="budget-total">'
       +   'Gesamtbudget: \u20AC' + budget.low + '\u2013\u20AC' + budget.high
