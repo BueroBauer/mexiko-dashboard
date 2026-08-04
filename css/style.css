@@ -451,7 +451,11 @@ section.section:last-child {
 
 /* Card Body */
 .tl-card-body {
+  display: none;
   border-top: 1px solid var(--border);
+}
+.tl-card--open .tl-card-body {
+  display: block;
 }
 
 /* Day */
