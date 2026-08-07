@@ -528,7 +528,7 @@ window.MEXIKO = {
     { id: "vid-009", title: "Mérida Yucatán — La Bella Blanca",                   youtubeId: "JxJWYhqRHEQ",     category: "kultur",   phaseIds: [5] },
     { id: "vid-010", title: "Flamingos Celestún Biosphärenreservat",               youtubeId: "BxhGev-hP1A",     category: "natur",    phaseIds: [5] },
     { id: "vid-011", title: "Oaxaca | Ancient Heart Still Beats | 4K Documentary", youtubeId: "pZ-xcNLFV7k",    category: "kultur",   phaseIds: [2,3] },
-    { id: "vid-012", title: "Hierve el Agua — Versteinerte Wasserfälle Oaxaca",    youtubeId: "PLACEHOLDER-012", category: "natur",    phaseIds: [2] },
+    { id: "vid-012", title: "Mexiko Roadtrip: Von Veracruz in die Berge von Oaxaca", youtubeId: "1VYBTVhmL-A",    category: "kultur",   phaseIds: [2,3] },
     { id: "vid-013", title: "Teotihuacán — Sonnenpyramide Besuch",                 youtubeId: "PLACEHOLDER-013", category: "kultur",   phaseIds: [1] },
     { id: "vid-014", title: "Vegetarisch in Mexiko — Geheimtipps",                 youtubeId: "PLACEHOLDER-014", category: "food",     phaseIds: [2,3,4] },
     { id: "vid-015", title: "Uxmal — Puuc Maya Architektur Guide",                  youtubeId: "PLACEHOLDER-015", category: "kultur",   phaseIds: [5] },
