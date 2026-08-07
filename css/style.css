@@ -1441,3 +1441,128 @@ section.section:last-child {
 .budget-ref-note { opacity: 0.7; }
 
 /* Hurrikan Status-Box — nutzt wd-status aus Taiwan */
+
+/* ── Video Add-Form ───────────────────────────────────────────── */
+.vid-add-wrap { margin-bottom: 1rem; }
+
+.vid-add-btn {
+  background: transparent;
+  border: 1px dashed #3B82F6;
+  color: #3B82F6;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+}
+.vid-add-btn:hover { background: rgba(59,130,246,0.1); }
+
+.vid-add-form {
+  background: #1C2128;
+  border: 1px solid #2D3748;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.75rem;
+}
+
+.vid-form-row {
+  margin-bottom: 0.75rem;
+}
+.vid-form-row--split {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.vid-form-row--actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vid-input {
+  width: 100%;
+  background: #0D0F12;
+  border: 1px solid #2D3748;
+  color: #E2E8F0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+}
+.vid-input:focus { outline: none; border-color: #3B82F6; }
+
+.vid-select { width: auto; min-width: 120px; }
+
+.vid-phase-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #A0AEC0;
+}
+.vid-phase-checks label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.vid-phase-label {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-right: 0.25rem;
+}
+
+.vid-save-btn {
+  background: #3B82F6;
+  color: #fff;
+  border: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+.vid-save-btn:hover { background: #2563EB; }
+
+.vid-cancel-btn {
+  background: transparent;
+  color: #A0AEC0;
+  border: 1px solid #2D3748;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+.vid-cancel-btn:hover { color: #E2E8F0; }
+
+.vid-feedback {
+  font-size: 0.8rem;
+  color: #68D391;
+}
+
+/* Custom Video Card */
+.vid-card--custom { position: relative; }
+
+.vid-delete-btn {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 10;
+  background: rgba(239,68,68,0.85);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.vid-card--custom:hover .vid-delete-btn { opacity: 1; }
