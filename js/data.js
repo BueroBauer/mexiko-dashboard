@@ -517,26 +517,26 @@ window.MEXIKO = {
   // videos — 20 kuratierte YouTube-Videos
   // ============================================================
   videos: [
-    { id: "vid-001", title: "La Ventanilla — Schildkröten mit Kind",              youtubeId: "w38-fDFopdc", category: "natur",    phaseIds: [3] },
-    { id: "vid-002", title: "Oaxaca Vegan Food Tour — beste vegane Tacos",        youtubeId: "b_CrhWZrVAY", category: "food",     phaseIds: [2] },
-    { id: "vid-003", title: "Whale Watching Huatulco — Buckelwale",               youtubeId: "2OXW9egVTjU", category: "natur",    phaseIds: [3] },
-    { id: "vid-004", title: "Worldschooling in Oaxaca with Kids",                 youtubeId: "mBSMpT_WZjs", category: "familie",  phaseIds: [2] },
-    { id: "vid-005", title: "Monte Albán komplett Guide",                          youtubeId: "JCuXEgfg32o", category: "kultur",   phaseIds: [2] },
-    { id: "vid-006", title: "Cenoten Yucatán mit Kleinkind",                       youtubeId: "xeXdwNOrsfM", category: "familie",  phaseIds: [4] },
-    { id: "vid-007", title: "Chichén Itzá — Weltenwunder Besuch Guide",            youtubeId: "Mo4YGLxaASI", category: "kultur",   phaseIds: [4] },
-    { id: "vid-008", title: "Oaxaca Wochenmärkte — Zapoteken-Kultur",              youtubeId: "_tMaflU--xA", category: "kultur",   phaseIds: [2] },
-    { id: "vid-009", title: "Mérida Yucatán — La Bella Blanca",                   youtubeId: "JxJWYhqRHEQ", category: "kultur",   phaseIds: [4] },
-    { id: "vid-010", title: "Flamingos Celestún Biosphärenreservat",               youtubeId: "BxhGev-hP1A", category: "natur",    phaseIds: [4] },
-    { id: "vid-011", title: "Mexiko mit Kleinkind — Familien-Tipps",               youtubeId: "PLACEHOLDER-011", category: "familie",  phaseIds: [1,2,3,4] },
+    { id: "vid-001", title: "La Ventanilla — Schildkröten mit Kind",              youtubeId: "w38-fDFopdc",     category: "natur",    phaseIds: [4] },
+    { id: "vid-002", title: "Oaxaca Vegan Food Tour — beste vegane Tacos",        youtubeId: "b_CrhWZrVAY",     category: "food",     phaseIds: [2] },
+    { id: "vid-003", title: "Whale Watching Huatulco — Buckelwale",               youtubeId: "2OXW9egVTjU",     category: "natur",    phaseIds: [4] },
+    { id: "vid-004", title: "Worldschooling in Oaxaca with Kids",                 youtubeId: "mBSMpT_WZjs",     category: "familie",  phaseIds: [2] },
+    { id: "vid-005", title: "Monte Albán komplett Guide",                          youtubeId: "JCuXEgfg32o",     category: "kultur",   phaseIds: [2] },
+    { id: "vid-006", title: "Cenoten Yucatán mit Kleinkind",                       youtubeId: "xeXdwNOrsfM",     category: "familie",  phaseIds: [5] },
+    { id: "vid-007", title: "Chichén Itzá — Weltenwunder Besuch Guide",            youtubeId: "Mo4YGLxaASI",     category: "kultur",   phaseIds: [5] },
+    { id: "vid-008", title: "Oaxaca Wochenmärkte — Zapoteken-Kultur",              youtubeId: "_tMaflU--xA",     category: "kultur",   phaseIds: [2] },
+    { id: "vid-009", title: "Mérida Yucatán — La Bella Blanca",                   youtubeId: "JxJWYhqRHEQ",     category: "kultur",   phaseIds: [5] },
+    { id: "vid-010", title: "Flamingos Celestún Biosphärenreservat",               youtubeId: "BxhGev-hP1A",     category: "natur",    phaseIds: [5] },
+    { id: "vid-011", title: "Oaxaca | Ancient Heart Still Beats | 4K Documentary", youtubeId: "pZ-xcNLFV7k",    category: "kultur",   phaseIds: [2,3] },
     { id: "vid-012", title: "Hierve el Agua — Versteinerte Wasserfälle Oaxaca",    youtubeId: "PLACEHOLDER-012", category: "natur",    phaseIds: [2] },
     { id: "vid-013", title: "Teotihuacán — Sonnenpyramide Besuch",                 youtubeId: "PLACEHOLDER-013", category: "kultur",   phaseIds: [1] },
     { id: "vid-014", title: "Vegetarisch in Mexiko — Geheimtipps",                 youtubeId: "PLACEHOLDER-014", category: "food",     phaseIds: [2,3,4] },
-    { id: "vid-015", title: "Uxmal — Puuc Maya Architektur Guide",                  youtubeId: "PLACEHOLDER-015", category: "kultur",   phaseIds: [4] },
-    { id: "vid-016", title: "Xochimilco Mexiko City mit Kindern",                   youtubeId: "PLACEHOLDER-016", category: "familie",  phaseIds: [1,5] },
+    { id: "vid-015", title: "Uxmal — Puuc Maya Architektur Guide",                  youtubeId: "PLACEHOLDER-015", category: "kultur",   phaseIds: [5] },
+    { id: "vid-016", title: "Xochimilco Mexiko City mit Kindern",                   youtubeId: "PLACEHOLDER-016", category: "familie",  phaseIds: [1,6] },
     { id: "vid-017", title: "Oaxaca — Alebrije Holzfiguren Kunsthandwerk",          youtubeId: "PLACEHOLDER-017", category: "kultur",   phaseIds: [2] },
-    { id: "vid-018", title: "Celestún Flamingos Boot-Tour kompletter Guide",         youtubeId: "PLACEHOLDER-018", category: "natur",    phaseIds: [4] },
-    { id: "vid-019", title: "Huatulco — Mexikos entspannteste Küste",               youtubeId: "PLACEHOLDER-019", category: "strand",   phaseIds: [3] },
-    { id: "vid-020", title: "Yucatán mit Mietwagen — Ruta Puuc + Maya Ruinen",     youtubeId: "PLACEHOLDER-020", category: "kultur",   phaseIds: [4] }
+    { id: "vid-018", title: "Celestún Flamingos Boot-Tour kompletter Guide",         youtubeId: "PLACEHOLDER-018", category: "natur",    phaseIds: [5] },
+    { id: "vid-019", title: "Huatulco — Mexikos entspannteste Küste",               youtubeId: "PLACEHOLDER-019", category: "strand",   phaseIds: [4] },
+    { id: "vid-020", title: "Yucatán mit Mietwagen — Ruta Puuc + Maya Ruinen",     youtubeId: "PLACEHOLDER-020", category: "kultur",   phaseIds: [5] }
   ],
 
   // ============================================================
